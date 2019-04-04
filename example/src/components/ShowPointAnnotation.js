@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animated, View, Text, StyleSheet} from 'react-native';
+import {Animated, View, Text, StyleSheet, NativeModules, NativeEventEmitter} from 'react-native';
 import MapboxGL from '@mapbox/react-native-mapbox-gl';
 
 import sheet from '../styles/sheet';
@@ -7,6 +7,14 @@ import sheet from '../styles/sheet';
 import BaseExamplePropTypes from './common/BaseExamplePropTypes';
 import Page from './common/Page';
 import Bubble from './common/Bubble';
+import { Button } from 'react-native-elements';
+var NativeMainViewController = NativeModules.NativeMainViewController;
+var EventPass = NativeModules.EventPass;
+
+const eventEmitter = new NativeEventEmitter(EventPass);
+
+var locationSubscription = null;
+
 
 const ANNOTATION_SIZE = 45;
 
@@ -53,9 +61,17 @@ class ShowPointAnnotation extends React.Component {
   }
 
   onPress(feature) {
+
     const coords = Object.assign([], this.state.coordinates);
+    coords.pop();
     coords.push(feature.geometry.coordinates);
     this.setState({coordinates: coords});
+    this.renderAnnotations();
+    NativeMainViewController.sendText("message", {'coordinates': coords });
+    return;
+    // const coords = Object.assign([], this.state.coordinates);
+    // coords.push(feature.geometry.coordinates);
+    // this.setState({coordinates: coords});
   }
 
   onAnnotationSelected(activeIndex, feature) {
@@ -138,11 +154,26 @@ class ShowPointAnnotation extends React.Component {
           {this.renderAnnotations()}
         </MapboxGL.MapView>
 
-        <Bubble>
+        {/* <Bubble>
           <Text>Click to add a point annotation</Text>
-        </Bubble>
+        </Bubble> */}
       </Page>
     );
+  }
+
+  componentWillMount() {
+    locationSubscription = eventEmitter.addListener('locationUpdate', (data) => {
+      // console.log("This is location update: ", data.location.coordinates);
+      const coords = Object.assign([], data.location.coordinates);
+      coords.coordinates = [data.location.coordinates];
+      this.setState({coordinates: coords});  
+    });
+  }
+
+  componentWillUnmount() {
+    if (locationSubscription != null) {
+      locationSubscription.remove();
+    }
   }
 }
 

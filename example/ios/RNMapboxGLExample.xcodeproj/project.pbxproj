@@ -13,6 +13,9 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		23D145C4678C41BDA799F3B5 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10BF593240CD4DD7AA8B63E1 /* MaterialCommunityIcons.ttf */; };
 		31DAEE13787E4DFCA98C5500 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F20084FFC1F248A28B781FDE /* Entypo.ttf */; };
+		3AF2D494224F708300ED51C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF2D493224F708300ED51C7 /* ViewController.m */; };
+		3AF2D496224F752700ED51C7 /* Hype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF2D495224F752700ED51C7 /* Hype.framework */; };
+		3AF2D497224F752700ED51C7 /* Hype.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF2D495224F752700ED51C7 /* Hype.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3BAF03C17C5844D298A8E80F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8D5D55CB55C40BAB62CA25C /* SimpleLineIcons.ttf */; };
 		50A215CCFFBD4873BB6B3CE2 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E87C3BF3BF94767B44CFC0C /* Ionicons.ttf */; };
 		6CE3B4A3F4E04D28BA3D1686 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D75A4A58713849B7A7FF505E /* Zocial.ttf */; };
@@ -309,6 +312,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3AF2D497224F752700ED51C7 /* Hype.framework in Embed Frameworks */,
 				C4E90D681F9928B0003C80E2 /* Mapbox.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -338,6 +342,9 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RNMapboxGLExample/main.m; sourceTree = "<group>"; };
 		185B11D7852F4121A504A72B /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		389403482ADC4CB0B1E2D7D7 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		3AF2D492224F708300ED51C7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = RNMapboxGLExample/ViewController.h; sourceTree = "<group>"; };
+		3AF2D493224F708300ED51C7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = RNMapboxGLExample/ViewController.m; sourceTree = "<group>"; };
+		3AF2D495224F752700ED51C7 /* Hype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hype.framework; path = "../lib/Hype-iOS/Hype.framework"; sourceTree = "<group>"; };
 		402F162FF13A4AFC90C5503F /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		4BC914580E7645F4907F8A32 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -372,6 +379,7 @@
 				C4DA80CF1F59D47400DE53BC /* libRCTSettings.a in Frameworks */,
 				C4DA80D01F59D47400DE53BC /* libRCTText.a in Frameworks */,
 				C4DA80D11F59D47400DE53BC /* libRCTVibration.a in Frameworks */,
+				3AF2D496224F752700ED51C7 /* Hype.framework in Frameworks */,
 				C4DA80D21F59D47400DE53BC /* libRCTWebSocket.a in Frameworks */,
 				C4DA80D31F59D47400DE53BC /* libReact.a in Frameworks */,
 				C4DA80D41F59D47400DE53BC /* libRNVectorIcons.a in Frameworks */,
@@ -471,6 +479,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				3AF2D492224F708300ED51C7 /* ViewController.h */,
+				3AF2D493224F708300ED51C7 /* ViewController.m */,
 			);
 			name = RNMapboxGLExample;
 			sourceTree = "<group>";
@@ -525,6 +535,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				3AF2D495224F752700ED51C7 /* Hype.framework */,
 				C4E90D661F9928B0003C80E2 /* Mapbox.framework */,
 				13B07FAE1A68108700A75B9A /* RNMapboxGLExample */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -1050,6 +1061,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AF2D494224F708300ED51C7 /* ViewController.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -1082,8 +1094,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../node_modules/@mapbox/react-native-mapbox-gl/ios",
+					"$(PROJECT_DIR)/../lib/**",
 				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../lib/**",
+				);
 				INFOPLIST_FILE = RNMapboxGLExample/Info.plist;
 				INSTALL_PATH = "$(INSTALL_PATH)";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1116,8 +1132,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../node_modules/@mapbox/react-native-mapbox-gl/ios",
+					"$(PROJECT_DIR)/../lib/**",
 				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../lib/**",
+				);
 				INFOPLIST_FILE = RNMapboxGLExample/Info.plist;
 				INSTALL_PATH = "$(INSTALL_PATH)";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
