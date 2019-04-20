@@ -1,6 +1,10 @@
 package com.rnmapboxglexample;
 
 import android.app.Application;
+
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.hypelabs.hype.Instance;
 import com.mapbox.rctmgl.RCTMGLPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 
@@ -11,6 +15,7 @@ import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
@@ -26,7 +31,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
           new RCTMGLPackage(),
-          new VectorIconsPackage()
+          new VectorIconsPackage(),
+          new MainActivity()
       );
     }
 
