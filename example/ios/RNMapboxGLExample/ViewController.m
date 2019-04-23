@@ -45,7 +45,7 @@ RCT_EXPORT_MODULE()
   hasListeners = NO;
 }
 
-- (void)onLocationUpdate:(NSDictionary *)location {
+- (void)onLocationUpdate:(id)location {
   if (hasListeners) {
     [self sendEventWithName:@"locationUpdate" body: location];
   }
@@ -77,8 +77,11 @@ RCT_EXPORT_METHOD(sendText:(NSDictionary *)location)
     for (NSString *key in vc.instances.allKeys) {
       HYPInstance *instance = vc.instances[key];
       if (location != nil) {
-        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:location];
-        [HYP sendData:data toInstance:instance];
+        NSError *error;
+        NSData *data = [NSJSONSerialization dataWithJSONObject:location options:kNilOptions error:&error];
+        if (data) {
+          [HYP sendData:data toInstance:instance];
+        }
       }
     }
     RCTLogInfo(@"Pretending to create an event %@ at %@", location);
@@ -198,23 +201,13 @@ RCT_EXPORT_METHOD(sendText:(NSDictionary *)location)
   
   dispatch_async(dispatch_get_main_queue(), ^{
     EventPass *eventPass = [EventPass allocWithZone:nil];
-    NSDictionary *location = [NSKeyedUnarchiver unarchiveObjectWithData:message.data];
-    if (location) {
-      [eventPass onLocationUpdate:location];
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:message.data options:kNilOptions error:&error];
+
+    if (json && error == nil) {
+      [eventPass onLocationUpdate:json];
     }
   });
-  
-//    NSString * text = [[NSString alloc] initWithData:message.data
-//                                            encoding:NSUTF8StringEncoding];
-  
-//  // If all goes well, this will log the original text
-//  NSString *msg = [NSString stringWithFormat: @"Hype received a message from: %@ %@", instance.stringIdentifier, text];
-//  NSLog(msg);
-//
-//  dispatch_async(dispatch_get_main_queue(), ^{
-//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message" message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//    [alertView show];
-//  });
 }
 
 @end
