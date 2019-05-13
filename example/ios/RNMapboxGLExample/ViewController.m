@@ -84,7 +84,6 @@ RCT_EXPORT_METHOD(sendText:(NSDictionary *)location)
         }
       }
     }
-    RCTLogInfo(@"Pretending to create an event %@ at %@", location);
   });
 }
 
